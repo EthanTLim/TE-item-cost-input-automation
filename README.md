@@ -6,7 +6,7 @@ Converts Tall Emu Purchase Orders from foreign currency (e.g. EUR) to AUD using 
 
 ## What it does
 
-1. Scans each subfolder in `input/` — the folder name is the PO number (e.g. `P-972`)
+1. Scans each subfolder in `input/` — the folder name is the PO number (e.g. `P-0001`)
 2. Parses the XE confirmation PDF (`C*.pdf`) for the exchange rate and AUD total
 3. Opens Tall Emu in a browser, finds the PO, and applies one of three actions:
    - **Already updated** (total matches XE total) → skips
@@ -27,7 +27,7 @@ playwright install chromium
 
 ### 2. Configure credentials
 
-Copy `dotenv.example` to a file named `dotenv` inside the `Passwords DO NOT LEAK` folder (one level up from this project):
+Copy `dotenv.example` to a file named `dotenv` in a credentials folder one level up from this project:
 
 ```
 TALL_EMU_URL=https://your-instance.tallemu.com
@@ -40,10 +40,10 @@ INPUT_DIR=input   # optional, defaults to "input"
 
 ```
 input/
-├── P-972/
-│   └── C20419284.pdf      ← XE confirmation PDF (must start with "C")
-└── P-973/
-    └── C20419371.pdf
+├── P-0001/
+│   └── C00000001.pdf      ← XE confirmation PDF (must start with "C")
+└── P-0002/
+    └── C00000002.pdf
 ```
 
 ---
